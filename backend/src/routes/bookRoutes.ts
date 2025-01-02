@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { listAllBooks, addBooks, searchBooks } from '../controllers/bookController';
+import { listAllBooks, addBooks, searchBooks, bookId, editBook,deleteBook } from '../controllers/bookController';
 
 const router = Router();
 
@@ -10,5 +10,11 @@ router.get('/books', listAllBooks);
 router.post('/books', addBooks);
 //search for our books
 router.get('/books/search', searchBooks);
+//getting book with book ID
+router.get('/books/:bookId', bookId);
+//editing our book, that exists with ID
+router.put('/books/:bookId', editBook);
+//delete our book, that exists with ID
+router.delete('/books/:bookId', deleteBook)
 
 export default router;
